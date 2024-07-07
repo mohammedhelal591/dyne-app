@@ -1,1 +1,22 @@
-<p>menu works!</p>
+<div class="row">
+    <nav class="navbar navbar-light py-0">
+        <div class="container-fluid justify-content-start p-3 mb-4">
+            <img src="../../assets/images/back-icon.png" [style.width]="'24px'" [style.height]="'24px'">
+            <a class="nav-link text-decoration-none text-capitalize text-dark ms-4"
+                [routerLink]="['/home']">{{restaurantName}}</a>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card-container">
+                @for(menu of menus; track menu){
+                <mat-card class="card" [ngStyle]="getBackgroundStyle(menu.background)" (click)="openMenu()">
+                    <mat-card-content class="card-content">
+                        <h4>{{ menu.name }}</h4>
+                    </mat-card-content>
+                </mat-card>
+                }
+            </div>
+        </div>
+    </div>
+</div>
