@@ -1,1 +1,48 @@
-<p>cart works!</p>
+<div class="row position-relative h-100">
+    <nav style="height: 5%;" class="navbar navbar-light py-0">
+        <div class="container-fluid justify-content-start p-3 mb-4">
+            <img src="../../assets/images/back-icon.png" (click)="back()" [style.width]="'24px'"
+                [style.height]="'24px'">
+            <a class="nav-link text-decoration-none text-capitalize text-dark ms-4">Cart</a>
+        </div>
+    </nav>
+
+    <div style="height: 90%;" class="container-fluid">
+        <div class="row gap-2">
+            @for(cartItem of cartItems; track cartItem){
+            <div class="col-sm-12 menuItem-card rounded p-3">
+                <div class="row h-100">
+                    <div class="menuItem-img col-5 d-flex">
+                        <img [src]="cartItem.thumbnail" class="img-fluid shadow-sm rounded" [alt]="cartItem.name">
+                    </div>
+                    <div class="menu-card-content col-5">
+                        <div class="menuItem-content">
+                            <h5>{{cartItem.name}}</h5>
+                        </div>
+                        <div class="menuItem-footer">
+                            <span>{{cartItem.price}} EGP</span>
+                        </div>
+                    </div>
+                    <div class="menu-card-actions col-2 d-flex align-items-center justify-content-between flex-column">
+                        <button (click)="increaseQuantity(cartItem)" class="btn btn-light d-flex" type="button">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                        <span>{{cartItem.quantity}}</span>
+                        <button (click)="decreaseQuantity(cartItem)" class="btn btn-light d-flex" type="button">
+                            <mat-icon>remove</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+
+    <div class="container-fluid footer p-3">
+        <div class="row p-2">
+            <button (click)="placeOrder()" class="btn order-btn d-flex rounded shadow-sm">
+                Order <span>{{totalPrice}} EGP</span>
+            </button>
+        </div>
+    </div>
+</div>

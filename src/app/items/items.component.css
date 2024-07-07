@@ -1,0 +1,24 @@
+mat-icon {
+  border: 1px solid primary;
+  border-radius: 8px;
+}
+
+.menuItem-card {
+  background-color: rgba(0, 0, 0, 0.84);
+  color: white;
+  border: 1px solid transparent;
+}
+
+p {
+  font-size: 14px;
+}
+
+span {
+  font-size: 16px;
+}
+
+.menuItem-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

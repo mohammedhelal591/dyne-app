@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="card-container">
-                @for(restaurant of retaurants; track restaurant){
+                @for(restaurant of orderService.restaurants(); track restaurant){
                 <mat-card class="card"
                     [ngStyle]="getBackgroundStyle(restaurant.restaurantBackground ?? restaurant.background!)"
                     (click)="openRestaurant(restaurant)">

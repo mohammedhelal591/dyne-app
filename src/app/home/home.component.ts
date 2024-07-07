@@ -24,13 +24,10 @@ export class HomeComponent {
   orderService = inject(OrderService);
   router = inject(Router);
 
-  retaurants: Restaurant[] = [];
-
   constructor() {
     this.orderService.getAllRestaurants().subscribe({
       next: (restaurants) => {
-        this.retaurants = restaurants;
-        console.log(restaurants);
+        this.orderService.restaurants.set(restaurants);
       },
     });
   }
@@ -44,7 +41,10 @@ export class HomeComponent {
   }
 
   openRestaurant(restaurant: Restaurant) {
-    this.router.navigate([`/menu/${restaurant.id}`], {
+    this.orderService.selectedRestaurantId.set(restaurant.id);
+    localStorage.setItem('restaurantId', String(restaurant.id));
+
+    this.router.navigate([`/menus/${restaurant.id}`], {
       state: {
         restaurantName: restaurant.name,
         menus: restaurant.menus,

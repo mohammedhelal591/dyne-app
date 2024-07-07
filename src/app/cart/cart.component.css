@@ -1,0 +1,46 @@
+mat-icon {
+  border: 1px solid primary;
+  border-radius: 8px;
+}
+
+.menuItem-card {
+  background-color: rgba(0, 0, 0, 0.84);
+  color: white;
+  border: 1px solid transparent;
+}
+
+p {
+  font-size: 14px;
+}
+
+span {
+  font-size: 16px;
+}
+
+.menu-card-content {
+  position: relative;
+  height: 100%;
+}
+
+.menuItem-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.order-btn {
+  background-color: rgba(74, 74, 74, 1);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.footer {
+  position: absolute;
+  bottom: 10%;
+}

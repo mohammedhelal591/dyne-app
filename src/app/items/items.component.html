@@ -1,1 +1,41 @@
-<p>items works!</p>
+<div class="row">
+    <nav class="navbar navbar-light py-0">
+        <div class="container-fluid justify-content-start p-3 mb-4">
+            <img src="../../assets/images/back-icon.png" (click)="back()" [style.width]="'24px'"
+                [style.height]="'24px'">
+            <a class="nav-link text-decoration-none text-capitalize text-dark ms-4">{{menuName}}</a>
+            <button [disabled]="!cartService.cart.quantity" (click)="openCart()" class="ms-auto btn" type="button"
+                [matBadgeColor]="'accent'" [matBadge]="cartService.cart.quantity"
+                [matBadgeHidden]="!cartService.cart.quantity">
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row gap-2">
+            @for(menuItem of menuItems; track menuItem){
+            <div class="col-sm-12 menuItem-card rounded p-3">
+                <div class="row">
+                    <div class="menuItem-img col-5 d-flex">
+                        <img [src]="menuItem.thumbnail" class="img-fluid shadow-sm rounded" [alt]="menuItem.name">
+                    </div>
+                    <div class="menu-card-content col-7">
+                        <div class="menuItem-content">
+                            <h4>{{menuItem.name}}</h4>
+                            <p>{{menuItem.description}}</p>
+                        </div>
+                        <div class="menuItem-footer">
+                            <span>{{menuItem.price}} EGP</span>
+                            <button type="button" (click)="addItemToCart(menuItem)"
+                                class="btn btn-outline-light border d-flex rounded">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>

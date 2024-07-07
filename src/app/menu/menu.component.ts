@@ -27,15 +27,13 @@ export class MenuComponent {
 
   restaurantName: string = '';
   menus: Menu[] = [];
-  restaurantId: number = 0;
 
   constructor() {
-    this.restaurantId = this.activatedRoute.snapshot.params['id'];
     this.restaurantName = history.state.restaurantName;
     this.menus = history.state.menus;
-
-    console.log(this.menus);
-    console.log(this.restaurantName);
+    this.orderService.selectedRestaurantId.set(
+      this.activatedRoute.snapshot.params['id']
+    );
   }
 
   getBackgroundStyle(img: string) {
@@ -46,7 +44,17 @@ export class MenuComponent {
     };
   }
 
-  openMenu(){
+  openMenu(menu: Menu) {
+    this.router.navigate([`/menu-items/${menu.id}`], {
+      state: {
+        restaurantId: this.orderService.selectedRestaurantId(),
+        menuName: menu.name,
+      },
+    });
+  }
 
+  back() {
+    this.orderService.selectedRestaurantId.set(null);
+    history.back();
   }
 }

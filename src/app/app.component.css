@@ -1,10 +1,6 @@
 * {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0) 18%,
-    rgba(0, 0, 0, 0.8) 78%
-  );
+  background: linear-gradient(180.03deg, #ffffff 50%, #999999 99.97%);
   height: 100%;
 }
